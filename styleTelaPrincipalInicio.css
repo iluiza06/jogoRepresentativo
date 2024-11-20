@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('./fundoJogo\ \(1\).svg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+
+.star-button {
+    position: absolute;
+    top: 52%; 
+    left: 40%; 
+    width: 22%; 
+    height: 23%; 
+    background-color: transparent;
+    border: none ;
+    border-radius: 50%;
+    cursor:pointer
+}

@@ -1,0 +1,60 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    overflow: hidden; 
+    background: linear-gradient(180deg, 
+    #C3A6F9 7%, /* Light Blue cobre 20% */
+    #BDE0ED 20%, /* Sky Blue até 50% */
+    #FFF 100% /* Alice Blue cobre o restante */
+);
+
+}
+
+.container {
+    position: relative;
+    max-width: 600px; 
+}
+
+.container img {
+    width: 100%; /* O SVG ocupa toda a largura disponível */
+    height: auto; /* Mantém a proporção */
+    display: block;
+}
+
+.button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+.button-1 {
+    top: 37%; /* Ajuste a posição com base no SVG */
+    left: 8%; /* Ajuste horizontal */
+    width: 85%;
+    height: 11%;  
+    border-radius: 10px;
+}
+
+.button-2 {
+    top: 57%; 
+    left: 8%;
+    width: 85%;
+    height: 11%; 
+    border-radius: 10px;
+}
+
+.button-3 {
+    top: 76%; 
+    left: 8%;
+    width: 85%;
+    height: 11%; 
+    border-radius: 10px;
+}

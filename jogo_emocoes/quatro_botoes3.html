@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quatro.css">
+    <title>Jogo 1</title>   
+</head>
+<body>
+    <div class="content">
+        <div class="top-image-container">
+            <img src="images/nome.png" alt="Imagem topo" class="top-image">
+            <button class="home-button"  onclick="window.location.href='http://127.0.0.1:5500/telas_principais/home.html'"> <!-- trocar pelo link da página home -->
+                <img src="images/home.png" alt="Botão Home">
+            </button>
+        </div>
+
+        <div class="center-image-container">
+            <img src="images/personagem3.png" alt="Imagem centro" class="center-image">
+        </div>
+
+        <div class="grid-container">
+            <button class="grid-item" onclick="playAudio('audio/erro.mp3')">
+                <img src="images/raiva.png" alt="Raiva" class="grid-image">
+            </button>
+            <button class="grid-item" onclick="playAudio('audio/erro.mp3')">
+                <img src="images/tedio.png" alt="Tédio" class="grid-image">
+            </button>
+            <button class="grid-item" onclick="playAudio('audio/erro.mp3')">
+                <div class="cloud-image-container">
+                    <img src="images/nuvem.png" alt="Nuvem" class="cloud-image">
+                </div>
+                <img src="images/alegria.png" alt="Alegria" class="grid-image">
+            </button>
+            <button class="grid-item" onclick="playAudioWithRedirect('audio/acerto.mp3', 'quatro_botoes4.html')">
+                <img src="images/vergonha.png" alt="Vergonha" class="grid-image">
+            </button>
+        </div>
+
+        <div class="image-container">
+            <img src="images/TODOS .png" alt="Imagem inferior" class="bottom-image">
+        </div>
+    </div>
+    <script>
+        function playAudio(audioFile) {
+            const audio = new Audio(audioFile);
+            audio.play();
+        }
+
+        function playAudioWithRedirect(audioFile, redirectUrl) {
+            const audio = new Audio(audioFile);
+            audio.play();
+            audio.onended = () => {
+                if (redirectUrl) {
+                    window.location.href = redirectUrl;
+                }
+            };
+        }
+    </script>
+</body>
+</html>

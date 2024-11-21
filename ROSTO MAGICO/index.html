@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Style.css">
+    <title>Rosto Magico</title>
+</head>
+
+<body>
+    <div class="body">
+        <div class="generico">
+            <button class="home-button" onclick="window.location.href='http://127.0.0.1:5500/telas_principais/home.html'">
+                <!-- trocar pelo link da página home -->
+                <img src="./IMG/home.png" alt="Botão Home">
+            </button>
+
+            <img id="LOGO" src="IMG/LOGO 6.png" alt="Titulo">
+        </div>
+        <div id="imagem_trocada" style="background-image: url('IMG/card_olho.png');"></div>
+        <div class="sub_body">
+            <img id="bnariz" src="IMG/botao_nariz.png" onclick="verificarCorreto(bnariz)" alt="botao nariz">
+            <img id="bouvido" src="IMG/botao_ouvido.png" onclick="verificarCorreto(bouvido)" alt="botao ouvido">
+            <img id="bolho" src="IMG/botao_olho.png" onclick="verificarCorreto(bolho)" alt="botao olho">
+            <img id="bboca" src="img/botao_boca.png" onclick="verificarCorreto(bboca)" alt="botao boca">
+
+            <audio id="audio_olho" src="Audio/olho.mp3"></audio>
+            <audio id="audio_nariz" src="Audio/nariz.mp3"></audio>
+            <audio id="audio_boca" src="Audio/boca.mp3"></audio>
+            <audio id="audio_ouvido" src="Audio/ouvido.mp3"></audio>
+        </div>
+        <img id="imagem_todos" src="IMG/TODOS.png" alt="todos">
+    </div>
+
+    <script src="Js/projeto.js"></script>
+</body>
+
+</html>

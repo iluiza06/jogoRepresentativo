@@ -28,33 +28,37 @@ body {
 }
 
 .button {
+    display: grid;
+    gap: 4.3rem;
+    margin-top: 22rem;
+    left: 2rem;
     position: absolute;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
 }
 
 
 .button-1 {
-    top: 37%; /* Ajuste a posição com base no SVG */
-    left: 8%; /* Ajuste horizontal */
-    width: 85%;
-    height: 11%;  
+    border: none;
+    background: none;
+    width: 366px;
+    height: 110px;  
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .button-2 {
-    top: 57%; 
-    left: 8%;
-    width: 85%;
-    height: 11%; 
+    border: none;
+    background: none;
+    width: 366px;
+    height: 110px; 
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .button-3 {
-    top: 76%; 
-    left: 8%;
-    width: 85%;
-    height: 11%; 
+    border: none;
+    background: none;
+    width: 366px;
+    height: 110px; 
     border-radius: 10px;
+    cursor: pointer;
 }

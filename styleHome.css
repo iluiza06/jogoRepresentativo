@@ -29,36 +29,81 @@ body {
 
 .button {
     display: grid;
-    gap: 4.3rem;
-    margin-top: 22rem;
-    left: 2rem;
+    gap: 5rem;
+    /* margin-top: 33rem; */
+    left: 3.5rem;
     position: absolute;
 }
 
 
 .button-1 {
+   margin-top: 26rem;
     border: none;
     background: none;
-    width: 366px;
-    height: 110px;  
+    width: 330px;
+    height:95px;  
     border-radius: 10px;
     cursor: pointer;
 }
 
 .button-2 {
+    margin-top: 1rem;
     border: none;
     background: none;
-    width: 366px;
-    height: 110px; 
+    width: 330px;
+    height: 95px;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .button-3 {
+  
     border: none;
     background: none;
-    width: 366px;
-    height: 110px; 
+    width: 330px;
+    height: 95px;
     border-radius: 10px;
     cursor: pointer;
+}
+/* Make all elements responsive */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
 }

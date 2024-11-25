@@ -33,11 +33,10 @@ body {
 
 
 .button-1 {
-   margin-top: 26rem;
     border: none;
     background: none;
-    width: 330px;
-    height:95px;  
+    width: 46rem;
+    height: 12rem;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -46,18 +45,18 @@ body {
 
     border: none;
     background: none;
-    width: 330px;
-    height: 95px;
+    width: 45.5rem;
+    height: 11rem;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .button-3 {
-  
+
     border: none;
     background: none;
-    width: 330px;
-    height: 95px;
+    width: 45.5rem;
+    height: 11rem;
     border-radius: 10px;
     cursor: pointer;
 }

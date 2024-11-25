@@ -36,7 +36,6 @@ body {
     width: 380px;
     margin: 0px;
     padding: 0px;
-
 }
 
 .generico{
@@ -50,6 +49,7 @@ body {
     width: 60px;
     border: none;
     margin-left: 20rem;
+cursor: pointer;
 }
 
 #imagem_todos {

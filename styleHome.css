@@ -1,109 +1,94 @@
+html {
+    width: 100%;
+    height: 100%;
+}
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-    overflow: hidden; 
-    background: linear-gradient(180deg, 
-    #C3A6F9 7%, /* Light Blue cobre 20% */
-    #BDE0ED 20%, /* Sky Blue até 50% */
-    #FFF 100% /* Alice Blue cobre o restante */
-);
-
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('./Group 58.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.container {
-    position: relative;
-    max-width: 600px; 
-}
 
-.container img {
-    width: 100%; /* O SVG ocupa toda a largura disponível */
-    height: auto; /* Mantém a proporção */
-    display: block;
-}
+
 
 .button {
-    display: grid;
-    gap: 5rem;
-    /* margin-top: 33rem; */
-    left: 3.5rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    margin: 15rem 0 0 2rem;
     position: absolute;
+
 }
 
 
 .button-1 {
-   margin-top: 26rem;
     border: none;
     background: none;
-    width: 330px;
-    height:95px;  
+    width: 46rem;
+    height: 12rem;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .button-2 {
-    margin-top: 1rem;
+
     border: none;
     background: none;
-    width: 330px;
-    height: 95px;
+    width: 45.5rem;
+    height: 11rem;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .button-3 {
-  
+
     border: none;
     background: none;
-    width: 330px;
-    height: 95px;
+    width: 45.5rem;
+    height: 11rem;
     border-radius: 10px;
     cursor: pointer;
 }
-/* Make all elements responsive */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-html {
-    font-size: 16px;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-img, video {
-    max-width: 100%;
-    height: auto;
-}
-
-.container {
+figure {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 100%;
     width: 100%;
-    padding: 0 15px;
-    margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-    html {
-        font-size: 14px;
-    }
+.feliz {
+    /* margin: 0;
+    width: 25rem; */
+    margin: 0;
+    width: 25rem;
+    position: absolute;
+    bottom: 5%; /* Ajuste vertical para posicionar sobre a bola amarela */
+    left: 21%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Corrige o deslocamento para alinhar o centro */
 }
 
-@media (max-width: 480px) {
-    html {
-        font-size: 12px;
-    }
+.duvida {
+    margin-top:3.3rem;
+    width: 250px;
+    align-self: center;
+}
+
+.medo {
+    margin-right: 2rem;
+    justify-content: end;
+    width: 25rem;
+    align-self: flex-end;
 }

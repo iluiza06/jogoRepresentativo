@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Áudio Persistente</title>
+</head>
+<body>
+  <audio id="background-audio" loop>
+    <source src="musica-infantil-instrumental-musica-infantil-music-for-good-8jcjbekaaw_0Eu7rEyY.mp3" type="audio/mp3">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('background-audio');
+audio.volume = 0.01;
+    // Força o autoplay após interação do usuário
+    document.body.addEventListener('click', function () {
+      if (audio.paused) {
+        audio.play().catch((error) => {
+          console.log("Erro ao reproduzir áudio:", error);
+        });
+      }
+    });
+
+    // Inicia o áudio automaticamente (caso permitido pelo navegador)
+    audio.play().catch((error) => {
+      console.log("Autoplay bloqueado. Clique na página para iniciar o áudio.");
+    });
+  </script>
+</body>
+</html>

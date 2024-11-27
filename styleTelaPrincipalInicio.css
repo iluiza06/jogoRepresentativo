@@ -35,7 +35,7 @@ body {
     bottom: 20px; 
     right: 20px; 
     z-index: 1000; 
-    background-color: #2698c2; 
+    background-color: #7BB400; 
     color: white; 
     font-size: 16px; 
     padding: 10px 20px; 
@@ -47,7 +47,7 @@ body {
 }
 
 #audio-control:hover {
-    background-color: #75c2df; 
+    background-color: #557c00; 
 }
 
 * {

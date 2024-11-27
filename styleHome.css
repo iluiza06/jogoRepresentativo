@@ -70,14 +70,13 @@ figure {
 }
 
 .feliz {
-    /* margin: 0;
-    width: 25rem; */
+    
     margin: 0;
     width: 25rem;
     position: absolute;
-    bottom: 5%; /* Ajuste vertical para posicionar sobre a bola amarela */
-    left: 21%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Corrige o deslocamento para alinhar o centro */
+    bottom: 5%; 
+    left: 21%; 
+    transform: translateX(-50%); 
 }
 
 .duvida {
@@ -92,3 +91,70 @@ figure {
     width: 25rem;
     align-self: flex-end;
 }
+
+
+#audio-control {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 1000; 
+    background-color: #2698c2; 
+    color: white; 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease; 
+}
+
+#audio-control:hover {
+    background-color: #75c2df; 
+}
+
+
+@media only screen and (max-width: 768px) {
+    body {
+        display: flex;
+        justify-content: center;
+        background-image: url('./Group 59.png'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #audio-control {
+        top: 10px; 
+        left: 5px;
+        bottom: unset; 
+        position: fixed; 
+        z-index: 1000; 
+        background-color: #9257FF; 
+        font-size: 14px; 
+        padding: 4px 16px; 
+        border-radius: 5px; 
+        height: 35px;
+        width: 150px;
+    }
+    
+
+    .button {
+        display: flex;
+        justify-content: center;
+        margin: 5rem 0 0 0; 
+        gap: 3rem; 
+    }
+    
+    .button-1, .button-2, .button-3  {
+        width: 20rem;
+        border-radius: 8px; 
+        margin-top: 1rem
+        
+    }
+    
+    .feliz, .duvida, .medo{
+        display: none;
+    }
+}
+

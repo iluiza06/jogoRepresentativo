@@ -115,6 +115,46 @@ text-align: center;
     height: auto;
 }
 
+#audio-control {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 1000; 
+    background-color: #2698c2; 
+    color: white; 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease; 
+}
+
+#audio-control:hover {
+    background-color: #75c2df; 
+}
+
+
+@media only screen and (max-width: 768px) {
+  
+    #audio-control {
+        top: 10px; 
+        left: 5px;
+        bottom: unset; 
+        position: fixed; 
+        z-index: 1000; 
+        background-color: #9257FF; 
+        font-size: 14px; 
+        padding: 4px 16px; 
+        border-radius: 5px; 
+        height: 35px;
+        width: 150px;
+    }
+    
+}
+
+
 @media (max-width: 430px) {
     .top-image {
         width: 100%;

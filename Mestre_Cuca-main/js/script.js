@@ -108,3 +108,48 @@ const loadGame = () => {
 }
 
 loadGame();
+
+
+    // Funções de áudio para interações (já existentes)
+    function playAudio(audioFile) {
+        const audio = new Audio(audioFile);
+        audio.play();
+    }
+
+    function playAudioWithRedirect(audioFile, redirectUrl) {
+        const audio = new Audio(audioFile);
+        audio.play();
+        audio.onended = () => {
+            if (redirectUrl) {
+                window.location.href = redirectUrl;
+            }
+        };
+    }
+
+    // Controle de áudio de fundo
+    const controlButton = document.getElementById('audio-control');
+    const iframe = document.getElementById('audio-iframe');
+
+    // Atualiza o texto do botão (Tocar ou Pausar)
+    function updateButton(status) {
+        controlButton.textContent = status === 'paused' ? 'Tocar Música' : 'Pausar Música';
+    }
+
+    // Alterna entre pausar e tocar a música
+    controlButton.addEventListener('click', () => {
+        const action = controlButton.textContent === 'Pausar Música' ? 'pause' : 'play';
+        iframe.contentWindow.postMessage({ action }, '*'); // Envia comando para o iframe
+        updateButton(action === 'pause' ? 'paused' : 'playing');
+    });
+
+    // Solicita o status do áudio ao carregar a página
+    iframe.onload = () => {
+        iframe.contentWindow.postMessage({ action: 'getStatus' }, '*');
+    };
+
+    // Atualiza o botão com base no status do áudio retornado do iframe
+    window.addEventListener('message', (event) => {
+        if (event.data.status) {
+            updateButton(event.data.status);
+        }
+    });

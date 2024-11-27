@@ -103,7 +103,28 @@ footer img{
     filter: saturate(0);
     opacity: 0.5;
 }
-/* Make all elements responsive */
+
+#audio-control {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 1000; 
+    background-color: #2698c2; 
+    color: white; 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease; 
+}
+
+#audio-control:hover {
+    background-color: #75c2df; 
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;

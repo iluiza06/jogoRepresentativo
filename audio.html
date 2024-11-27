@@ -1,32 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Áudio Persistente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áudio Persistente</title>
 </head>
 <body>
-  <audio id="background-audio" loop>
-    <source src="musica-infantil-instrumental-musica-infantil-music-for-good-8jcjbekaaw_0Eu7rEyY.mp3" type="audio/mp3">
-    Seu navegador não suporta o elemento de áudio.
-  </audio>
+    <audio id="background-audio" autoplay loop>
+        <source src="Ponies and Balloons - The Green Orbs.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
 
-  <script>
-    const audio = document.getElementById('background-audio');
-audio.volume = 0.01;
-    // Força o autoplay após interação do usuário
-    document.body.addEventListener('click', function () {
-      if (audio.paused) {
-        audio.play().catch((error) => {
-          console.log("Erro ao reproduzir áudio:", error);
+    <script>
+        const audio = document.getElementById('background-audio');
+
+        // Ajustar volume inicial
+        audio.volume = 0.01;
+
+        // Recuperar posição do áudio salva no localStorage
+        const savedTime = localStorage.getItem('audioTime');
+        if (savedTime) {
+            audio.currentTime = parseFloat(savedTime); // Retoma do ponto salvo
+        }
+
+        // Recuperar volume salvo no localStorage
+        const savedVolume = localStorage.getItem('audioVolume');
+        if (savedVolume) {
+            audio.volume = parseFloat(savedVolume);
+        }
+
+        // Salvar posição do áudio continuamente
+        audio.addEventListener('timeupdate', () => {
+            localStorage.setItem('audioTime', audio.currentTime); // Salva o tempo atual
         });
-      }
-    });
 
-    // Inicia o áudio automaticamente (caso permitido pelo navegador)
-    audio.play().catch((error) => {
-      console.log("Autoplay bloqueado. Clique na página para iniciar o áudio.");
-    });
-  </script>
+        // Salvar volume ao ser alterado
+        audio.addEventListener('volumechange', () => {
+            localStorage.setItem('audioVolume', audio.volume); // Salva o volume atual
+        });
+
+        // Controle Play/Pause e envio de status
+        window.addEventListener('message', (event) => {
+            if (event.data.action === 'pause') {
+                audio.pause();
+                window.parent.postMessage({ status: 'paused' }, '*');
+            } else if (event.data.action === 'play') {
+                audio.play();
+                window.parent.postMessage({ status: 'playing' }, '*');
+            } else if (event.data.action === 'getStatus') {
+                const status = audio.paused ? 'paused' : 'playing';
+                window.parent.postMessage({ status }, '*');
+            }
+        });
+    </script>
 </body>
 </html>

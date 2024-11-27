@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="quatro.css">
     <title>Jogo 1</title>
 </head>
-
 <body>
+    <!-- Botão para pausar/tocar música -->
+    <button id="audio-control" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">Pausar Música</button>
+    <!-- Iframe para áudio persistente -->
+    <iframe id="audio-iframe" src="../audio.html" style="display: none;"></iframe>
+
     <div class="content">
         <div class="top-image-container">
             <img src="images/nome.png" alt="Imagem topo" class="top-image">
-            <button class="home-button"
-                onclick="window.location.href='../home.html'">
-                <!-- trocar pelo link da página home -->
+            <button class="home-button" onclick="window.location.href='../home.html'">
                 <img src="images/home.png" alt="Botão Home">
             </button>
         </div>
@@ -42,11 +43,12 @@
         </div>
 
         <div class="image-container">
-            <img src="images/TODOS .png" alt="Imagem inferior" class="bottom-image">
+            <img src="images/TODOS.png" alt="Imagem inferior" class="bottom-image">
         </div>
     </div>
 
     <script>
+        // Funções de áudio para interações
         function playAudio(audioFile) {
             const audio = new Audio(audioFile);
             audio.play();
@@ -61,7 +63,34 @@
                 }
             };
         }
+
+        // Controle de áudio de fundo
+        const controlButton = document.getElementById('audio-control');
+        const iframe = document.getElementById('audio-iframe');
+
+        // Atualiza o texto do botão (Tocar ou Pausar)
+        function updateButton(status) {
+            controlButton.textContent = status === 'paused' ? 'Tocar Música' : 'Pausar Música';
+        }
+
+        // Alterna entre pausar e tocar a música
+        controlButton.addEventListener('click', () => {
+            const action = controlButton.textContent === 'Pausar Música' ? 'pause' : 'play';
+            iframe.contentWindow.postMessage({ action }, '*');
+            updateButton(action === 'pause' ? 'paused' : 'playing');
+        });
+
+        // Solicita o status do áudio ao carregar a página
+        iframe.onload = () => {
+            iframe.contentWindow.postMessage({ action: 'getStatus' }, '*');
+        };
+
+        // Atualiza o botão com base no status do áudio retornado do iframe
+        window.addEventListener('message', (event) => {
+            if (event.data.status) {
+                updateButton(event.data.status);
+            }
+        });
     </script>
 </body>
-
 </html>

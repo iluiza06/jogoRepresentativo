@@ -5,19 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emoção e Ação</title>
     <link rel="stylesheet" href="styleTelaPrincipalInicio.css">
+
 </head>
 <body>
-
+    <!-- Botão de início -->
     <button class="star-button" id="star-button"></button>
 
-<iframe src="./audio.html" style="display: none;"></iframe>
-    <script>
-        const button = document.getElementById('star-button');
+    <!-- Iframe único para o áudio -->
+    <iframe id="audio-iframe" src="./audio.html" style="display: none;"></iframe>
 
-        button.addEventListener('click', () => {
-            
-            window.location.href = "./home.html"; 
+    <!-- Botões de controle -->
+    <button id="audio-control" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">Pausar Música</button>
+   
+
+    <script>
+
+const button = document.getElementById('star-button');
+
+button.addEventListener('click', () => {
+    
+    window.location.href = "./home.html"; 
+});
+
+        const iframe = document.getElementById('audio-iframe');
+        const controlButton = document.getElementById('audio-control');
+       
+
+        // Atualiza o texto do botão
+        function updateButton(status) {
+            controlButton.textContent = status === 'paused' ? 'Tocar Música' : 'Pausar Música';
+        }
+
+        // Envia comando para alternar entre tocar e pausar
+        controlButton.addEventListener('click', () => {
+            const action = controlButton.textContent === 'Pausar Música' ? 'pause' : 'play';
+            iframe.contentWindow.postMessage({ action }, '*');
+            updateButton(action === 'pause' ? 'paused' : 'playing');
         });
+
+        // Controla o volume
+        volumeUp.addEventListener('click', () => {
+            iframe.contentWindow.postMessage({ action: 'volume', volume: 0.1 }, '*'); // Aumenta 0.1
+        });
+
+        volumeDown.addEventListener('click', () => {
+            iframe.contentWindow.postMessage({ action: 'volume', volume: -0.1 }, '*'); // Diminui 0.1
+        });
+
+        // Solicita o estado do áudio ao carregar
+        iframe.onload = () => {
+            iframe.contentWindow.postMessage({ action: 'getStatus' }, '*');
+        };
+
+        // Atualiza o botão ao receber status do iframe
+        window.addEventListener('message', (event) => {
+            if (event.data.status) {
+                updateButton(event.data.status);
+            }
+        });
+
+
+        
     </script>
 </body>
 </html>
